@@ -1,0 +1,68 @@
+#version: '2.34'
+services:
+  bdd:
+    image: mariadb
+    restart: always
+    container_name: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: motdepasse_root
+      MARIADB_DATABASE: nom_de_la_base
+      MARIADB_USER: utilisateur
+      MARIADB_PASSWORD: motdepasse_utilisateur
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+      - ./logs/mariadb:/var/log/mysql
+
+  web:
+    #image: php:8.2-apache
+    build:
+     context: ./config/docker
+     dockerfile: dockerweb
+    container_name: apache-php
+    volumes:
+      - ./site:/var/www/html
+      - ./logs/site:/var/log/apache2
+      - ./config/apache/defaut.conf:/etc/apache2/sites-available/000-default.conf
+    restart: always
+    depends_on:
+      - bdd
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    depends_on:
+      - web
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./config/nginx/defaut.conf:/etc/nginx/conf.d/default.conf         # config personnalisée
+      - ./logs/nginx:/var/log/nginx                # logs nginx
+      - ./config/nginx/ssl.sh:/generate-cert.sh  # Monté dans le conteneur
+      - ./config/nginx/certs:/etc/nginx/certs
+    entrypoint: [ "/bin/bash", "-c", "/generate-cert.sh && nginx -g 'daemon off;'" ]
+    restart: always
+
+  mail:
+    image: maildev/maildev
+    container_name: maildev
+    ports:
+      - "1080:1080"  # Web interface
+      - "1025:1025"  # SMTP
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    depends_on:
+      - bdd
+    environment:
+      PMA_HOST: bdd
+      PMA_PORT: 3306
+      PMA_USER: utilisateur
+      PMA_PASSWORD: motdepasse_utilisateur
+    ports:
+      - "8081:80"
+    restart: always

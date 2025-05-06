@@ -1,0 +1,17 @@
+#Exclusion du contenu du dossier mariadb, mais non exclusion du dossier en lui-même
+data/mariadb/*
+!data/mariadb/
+
+logs/mariadb/*
+!logs/mariadb/
+
+logs/site/*
+!logs/site/
+
+logs/nginx/*
+!logs/nginx/
+
+
+
+
+!**/.gitkeep
