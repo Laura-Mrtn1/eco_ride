@@ -1,0 +1,13 @@
+
+<Files "">
+    Order Deny,Allow
+    Allow from all
+</Files>
+<Files "admin">
+    Order Deny,Allow
+    Allow from all
+</Files>
+<Files "eco_ride.php">
+    Order Deny,Allow
+    Allow from all
+</Files>

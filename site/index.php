@@ -4,7 +4,9 @@
 </div>
 
 <?php
-require 'include/phpMailer/autoload.php';
+
+//Mail
+require 'php/include/phpMailer/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -43,4 +45,7 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: $mail->ErrorInfo";
 }
+
+
+
 ?>

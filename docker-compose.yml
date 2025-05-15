@@ -25,6 +25,7 @@ services:
       - ./site:/var/www/html
       - ./logs/site:/var/log/apache2
       - ./config/apache/defaut.conf:/etc/apache2/sites-available/000-default.conf
+      - ./config/php/config.ini:/usr/local/etc/php/conf.d/custom_php.ini
     restart: always
     depends_on:
       - bdd
