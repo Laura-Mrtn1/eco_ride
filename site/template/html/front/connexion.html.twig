@@ -1,0 +1,67 @@
+{# connexion.html.twig #}
+{% extends 'hello.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block content %}
+    <div class="page_connexion_covoiturages" id="connexion_covoiturages">
+        <div class="container">
+            <div class="col-md-12 fond_inscription_covoiturages">
+                <p class="text-center">Création de compte</p><br><br>
+                <div class="row">
+                    <div class="col-md-12 formulaire_inscription">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputPseudo">Pseudo</label>
+                                <input type="text" class="form-control" id="exampleInputPseudo">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword">Mot de passe</label>
+                                <input type="password" class="form-control" id="exampleInputPassword">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="bouton_connexion btn btn-default">Rejoindre l'aventure</button>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <a href="">Se connecter</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="col-md-12 fond_connexion_covoiturages">
+                <p class="text-center">Se connecter</p><br><br>
+                <div class="row">
+                    <div class="col-md-12 formulaire_inscription">
+                        <form>
+                            <div class="form-group">
+                            <label for="exampleInputPseudo">Pseudo</label>
+                            <input type="text" class="form-control" id="exampleInputPseudo">
+                            </div>
+                            <div class="form-group">
+                            <label for="exampleInputEmail">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword">Mot de passe</label>
+                                <input type="password" class="form-control" id="exampleInputPassword">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="bouton_connexion btn btn-default">Rejoindre l'aventure</button>
+                            </div>
+                            <br>
+                            <div class="text-center">
+                                <a href="">S'inscrire</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,217 @@
+{# acces_covoiturages.html.twig #}
+{% extends 'hello.html.twig' %}
+
+{% block title %}Accès covoiturages{% endblock %}
+
+{% block content %}
+    <div class="page_acces_covoiturages" id="acces_covoiturages">
+        <div class="couverture_accueil">
+            <img class= "img_couverture_2" src="Images/route-campagne.jpg">
+            <div class="overlay"></div>
+            <h2 class="titre_couverture">PROGRAMMEZ VOTRE PROCHAIN ITINÉRAIRE</h2>
+            <form class="barre_recherche">
+                <table>
+                    <tr class="style_barre_recherche">
+                        <td><input type="text" placeholder="Départ"></td>
+                        <td><input type="text" placeholder="Arrivée"></td>
+                        <td><input type="date"></td>
+                        <td><button class="bouton_ecoride" type="submit">RECHERCHER</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="fond_covoiturages">
+            <div class="container">
+                <div class="contenu_acces_covoiturages">
+                    <div class="row">
+                        <div class="col-md-3 trier_covoiturages">
+                            <h4>Trier par :</h4>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                                    &nbsp;Voiture éléctrique
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                                    &nbsp;Prix du voyage
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input_recherche_filtre">
+                                    <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status" placeholder="Prix max :">
+                                    <span class="input-group-addon input_symbole">€</span>
+                                </div>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                                    &nbsp;Durée du voyage
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group input_recherche_filtre">
+                                    <input type="text" class="form-control" id="inputGroupSuccess2" aria-describedby="inputGroupSuccess2Status" placeholder="Durée max :">
+                                    <span class="input-group-addon input_symbole"><i class="fa-regular fa-clock"></i></span>
+                                </div>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                                    &nbsp;Note
+                                </label>
+                            </div>
+                            <div>
+                                <span class="fa-regular fa-star fa-xl"></span>
+                                <span class="fa-regular fa-star fa-xl"></span>
+                                <span class="fa-regular fa-star fa-xl"></span>
+                                <span class="fa-regular fa-star fa-xl"></span>
+                                <span class="fa-regular fa-star fa-xl"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-8">
+                            <div class="fond_offre_covoiturages">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p id="date_container">28/02/2025</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-right" id="prix_element">43,99€</p>
+                                    </div>
+                                </div>
+                                <div class="row duree_covoiturages">
+                                    <div class="col-md-1">
+                                        <p id="heure_depart">12:55</p>
+                                    </div>
+                                    <div class="col-md-4 duree_trajet">
+                                        <span class="trajet_circle fa-regular fa-circle"></span><hr class="longueur_trajet"><span class="trajet_circle fa-regular fa-circle"></span>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p id="heure_arrivee">20:22</p>
+                                    </div>
+                                </div>
+                                <hr class="separation_offre_covoiturages">
+                                <div class="row offre_covoiturages">
+                                    <div class="col-md-1">
+                                        <img src="Images/voiture.png">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <img src="Images/user.png">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p>Prénom</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>1 place disponible</p>
+                                    </div>
+                                    <div class="col-md-3 bouton_details">
+                                        <button class="bouton_ecoride" type="submit">DÉTAILS</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fond_offre_covoiturages">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p id="date_container">28/02/2025</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-right" id="prix_element">43,99€</p>
+                                    </div>
+                                </div>
+                                <div class="row duree_covoiturages">
+                                    <div class="col-md-1">
+                                        <p id="heure_depart">12:55</p>
+                                    </div>
+                                    <div class="col-md-4 duree_trajet">
+                                        <span class="trajet_circle fa-regular fa-circle"></span><hr class="longueur_trajet"><span class="trajet_circle fa-regular fa-circle"></span>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p id="heure_arrivee">20:22</p>
+                                    </div>
+                                </div>
+                                <hr class="separation_offre_covoiturages">
+                                <div class="row offre_covoiturages">
+                                    <div class="col-md-1">
+                                        <img src="Images/voiture-electrique.png">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <img src="Images/user_h.png">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p>Prénom</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>2 places disponibles</p>
+                                    </div>
+                                    <div class="col-md-3 bouton_details">
+                                        <button class="bouton_ecoride" type="submit">DÉTAILS</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fond_offre_covoiturages">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p id="date_container">28/02/2025</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="text-right" id="prix_element">43,99€</p>
+                                    </div>
+                                </div>
+                                <div class="row duree_covoiturages">
+                                    <div class="col-md-1">
+                                        <p id="heure_depart">12:55</p>
+                                    </div>
+                                    <div class="col-md-4 duree_trajet">
+                                        <span class="trajet_circle fa-regular fa-circle"></span><hr class="longueur_trajet"><span class="trajet_circle fa-regular fa-circle"></span>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <p id="heure_arrivee">20:22</p>
+                                    </div>
+                                </div>
+                                <hr class="separation_offre_covoiturages">
+                                <div class="row offre_covoiturages">
+                                    <div class="col-md-1">
+                                        <img src="Images/voiture.png">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <img src="Images/user.png">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p>Prénom</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                        <span class="fa-regular fa-star fa-lg"></span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <p>1 place disponible</p>
+                                    </div>
+                                    <div class="col-md-3 bouton_details">
+                                        <button class="bouton_ecoride" type="submit">DÉTAILS</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
