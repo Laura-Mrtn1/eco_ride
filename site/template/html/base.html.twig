@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="/front_css/front.css">
+    <link rel="stylesheet" href="/admin_css/admin.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Barre de menu -->
+<div class="barre_menu">
+    <nav class="container menu navigation_menu">
+        <a class="bouton_accueil" href="?front/page=accueil">ACCUEIL</a>
+        <a class="bouton_acces_covoiturages" href="?page=front/acces_covoiturages">ACCÈS COVOITURAGES</a>
+        <img class="logo_ecoride" src="/images/front/Logo - EcoRide.png">
+        <a class="bouton_contact" href="?page=front/contact">CONTACT</a>
+
+        <!-- Dropdown -->
+        <div class="dropdown userMenu_dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user fa-xl"></i> <i class="fa fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                {% if session.is_admin %}
+                    <li><a href="?page=admin/profil">Profil</a></li>
+                    <li><a href="?page=admin/trajets">Trajets à venir</a></li>
+                    <li><a href="?page=admin/publier_trajet">Publier un trajet</a></li>
+                    <li><a href="?page=admin/deconnexion">Déconnexion</a></li>
+                {% else %}
+                    <li><a href="?page=front/connexion">Connexion</a></li>
+                    <li><a href="?page=front/inscription">Inscription</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<!-- Contenu principal -->
+<div>
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="barre_footer">
+        <div class="container footer">
+            <img class="logo_ecoride_footer" src="/images/front/Logo - EcoRide.png">
+            <p>Pour nous contacter : <a href="#">Cliquez ici</a></p>
+            <p><a href="#">Mentions légales</a></p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts JS à la fin -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

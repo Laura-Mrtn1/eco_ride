@@ -1,0 +1,71 @@
+{# profil.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Publier un trajet{% endblock %}
+
+{% block content %}
+    <div class="page_profil_admin" id="profil_admin">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="date_container">Publier un trajet</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="fond_offre_covoiturages">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="titre_fiche_conducteur">Saisir un voyage</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <p>Adresse de départ :</p>
+                                <div class="input input_recherche_filtre">
+                                    <input type="text" class="form-control" id="inputGroupSuccess7" aria-describedby="inputGroupSuccess1Status" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <p>Adresse d'arrivée :</p>
+                                <div class="input input_recherche_filtre">
+                                    <input type="text" class="form-control" id="inputGroupSuccess8" aria-describedby="inputGroupSuccess1Status" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <p>Prix : (-2 crédits)</p>
+                                <div class="input input_recherche_filtre">
+                                    <input type="text" class="form-control" id="inputGroupSuccess9" aria-describedby="inputGroupSuccess1Status" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <p>Sélection d'un véhicule :</p>
+                                <div class="input input_recherche_filtre">
+                                    <input type="text" class="form-control" id="inputGroupSuccess10" aria-describedby="inputGroupSuccess1Status" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-offset-4 col-md-4">
+                            <button class="bouton_participer" type="submit">ENREGISTRER</button>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

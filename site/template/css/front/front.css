@@ -1,10 +1,10 @@
-.page_accueil, .page_acces_covoiturages, .page_details_covoiturages, .page_connexion_covoiturages {
-    display: none;
+.page_accueil, .page_acces_covoiturages, .page_details_covoiturages, .page_connexion_covoiturages, .page_espace_utilisateur {
+    /*display: none;*/
 }
 
-img {
+/*img {
     height: 30px;
-}
+}*/
 
 body {
     font-family: "Poppins", sans-serif !important;
@@ -55,6 +55,7 @@ nav a, nav a:hover {
 .logo_ecoride {
     height: 100px;
     width: auto;
+    transform: translateX(-50%);
 }
 
 .img_couverture, .img_couverture_2 {
@@ -142,7 +143,7 @@ nav a, nav a:hover {
     border: none !important;
 }
 
-.contenu_accueil, .contenu_acces_covoiturages {
+.contenu_accueil {
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -184,6 +185,8 @@ nav a, nav a:hover {
 
 .fond_covoiturages {
     background-color: #CADAC8;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .trier_covoiturages {
@@ -453,10 +456,10 @@ input[type="radio"]:checked::after {
     padding-bottom: 0px !important;
 }
 
-.fond_covoiturages .row {
+/*.fond_covoiturages .row {
     margin-top: 50px !important;
     margin-bottom: 50px !important;
-}
+}*/
 
 .fond_covoiturages h3 {
     color: #53854A;
@@ -465,3 +468,15 @@ input[type="radio"]:checked::after {
 .fa-brands {
     color: #53854A;
 }
+
+
+.userMenu_dropdown > .btn-default {
+    color: white !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.navigation_menu a {
+    flex-grow: 0 !important;
+}
+

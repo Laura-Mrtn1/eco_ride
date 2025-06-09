@@ -6,29 +6,29 @@
 {% block content %}
     <div class="page_connexion_covoiturages" id="connexion_covoiturages">
         <div class="container">
-            <div class="col-md-12 fond_connexion_covoiturages">
-                <p class="text-center">Se connecter</p><br><br>
+            <div class="col-md-12 fond_inscription_covoiturages">
+                <p class="text-center">Création de compte</p><br><br>
                 <div class="row">
                     <div class="col-md-12 formulaire_inscription">
-                        <form>
+                        <form method="POST" action="?page=front/inscription">
                             <div class="form-group">
-                            <label for="exampleInputPseudo">Pseudo</label>
-                            <input type="text" class="form-control" id="exampleInputPseudo">
+                                <label for="exampleInputPseudo">Pseudo</label>
+                                <input type="text" class="form-control" id="exampleInputPseudo">
                             </div>
                             <div class="form-group">
-                            <label for="exampleInputEmail">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail">
+                                <label for="exampleInputEmail">Email</label>
+                                <input type="email" class="form-control" id="exampleInputEmail">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword">Mot de passe</label>
                                 <input type="password" class="form-control" id="exampleInputPassword">
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="bouton_connexion btn btn-default">Rejoindre l'aventure</button>
+                                <button type="submit" class="bouton_connexion">Rejoindre l'aventure</button>
                             </div>
                             <br>
                             <div class="text-center">
-                                <a href="?page=inscription">S'inscrire</a>
+                                <a href="?page=connexion">Se connecter</a>
                             </div>
                         </form>
                     </div>

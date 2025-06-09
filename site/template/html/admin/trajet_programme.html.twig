@@ -1,0 +1,118 @@
+{# profil.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Vos trajets{% endblock %}
+
+{% block content %}
+    <div class="page_profil_admin" id="profil_admin">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p id="date_container">Vos trajets</p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="fond_offre_covoiturages">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="titre_fiche_conducteur">Trajets à venir</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="titre_fiche_conducteur">Chauffeur</p>
+                        </div>
+                    </div>
+                    <div class="contenu_acces_covoiturages">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="fond_offre_covoiturages_trajet">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p id="date_container">28/02/2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="row duree_covoiturages_details">
+                                        <div class="col-md-3">
+                                            <p id="heure_depart">Paris</p>
+                                        </div>
+                                        <div class="col-md-1 text-right">
+                                            <p id="heure_arrivee">Lyon</p>
+                                        </div>
+                                        <div class="col-md-offset-5 col-md-3 bouton_participer">
+                                            <a href="?page=front/details_covoiturages" class="bouton_ecoride">DÉMARRER</a>
+                                        </div>
+                                    </div>
+                                    <div class="row duree_covoiturages_details">
+                                        <div class="col-md-4 duree_trajet">
+                                            <span class="trajet_circle fa-regular fa-circle"></span><hr class="longueur_trajet"><span class="trajet_circle fa-regular fa-circle"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row duree_covoiturages_details">
+                                        <div class="col-md-3">
+                                            <p id="heure_depart">12:55</p>
+                                        </div>
+                                        <div class="col-md-1 text-right">
+                                            <p id="heure_arrivee">15:56</p>
+                                        </div>
+                                        <div class="col-md-offset-5 col-md-3 bouton_participer">
+                                            <a href="?page=front/details_covoiturages" class="bouton_participer">ANNULER</a>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="titre_fiche_conducteur">Passager</p>
+                        </div>
+                    </div>
+                    <div class="contenu_acces_covoiturages">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="fond_offre_covoiturages_trajet">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p id="date_container">28/02/2025</p>
+                                        </div>
+                                    </div>
+                                    <div class="row duree_covoiturages_details">
+                                        <div class="col-md-3">
+                                            <p id="heure_depart">Lyon</p>
+                                        </div>
+                                        <div class="col-md-1 text-right">
+                                            <p id="heure_arrivee">Marseille</p>
+                                        </div>
+                                        <div class="col-md-offset-5 col-md-3 bouton_participer">
+                                            <a href="?page=front/details_covoiturages" class="bouton_ecoride">DÉMARRER</a>
+                                        </div>
+                                    </div>
+                                    <div class="row duree_covoiturages_details">
+                                        <div class="col-md-4 duree_trajet">
+                                            <span class="trajet_circle fa-regular fa-circle"></span><hr class="longueur_trajet"><span class="trajet_circle fa-regular fa-circle"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row duree_covoiturages_details">
+                                        <div class="col-md-3">
+                                            <p id="heure_depart">10:35</p>
+                                        </div>
+                                        <div class="col-md-1 text-right">
+                                            <p id="heure_arrivee">15:26</p>
+                                        </div>
+                                        <div class="col-md-offset-5 col-md-3 bouton_participer">
+                                            <a href="?page=front/details_covoiturages" class="bouton_participer">ANNULER</a>
+                                        </div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+{% endblock %}
