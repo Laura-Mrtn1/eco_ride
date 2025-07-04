@@ -1,2 +1,3 @@
-Order Deny,Allow
-Deny from all
+<Files "index.php">
+    Require all granted
+</Files>
