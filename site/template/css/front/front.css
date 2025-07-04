@@ -402,7 +402,7 @@ input[type="radio"]:checked::after {
     font-size: 18px;
     color: #6C6C6C;
     font-weight: 500;
-    padding-left: 15px !important;
+    padding-left: 15px;
 }
 
 .avis_covoiturages > p {
@@ -448,11 +448,11 @@ input[type="radio"]:checked::after {
     font-weight: 500;
 }
 
-.page_contact .couverture_accueil {
+.page_contact .couverture_accueil, .page_mentions_legales .couverture_accueil {
     height: 200px !important;
 }
 
-.page_contact .titre_couverture {
+.page_contact .titre_couverture, .page_mentions_legales .titre_couverture{
     padding-bottom: 0px !important;
 }
 
