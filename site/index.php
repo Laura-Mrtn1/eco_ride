@@ -1,10 +1,11 @@
-<div>
-	Test jk
-    <!--jtlm-->
-</div>
-
 <?php
+// Redirection automatique vers la partie front
+header("Location: ../php/front/eco_ride_front.php");
+exit;
 
+?>
+
+/*
 //Mail
 require 'php/include/phpMailer/autoload.php';
 
@@ -46,6 +47,3 @@ try {
     echo "Message could not be sent. Mailer Error: $mail->ErrorInfo";
 }
 
-
-
-?>

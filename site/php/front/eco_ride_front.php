@@ -1,15 +1,13 @@
 <?php
 
-session_start();
-
+// Initialisation de la session admin si non définie
 if (!isset($_SESSION['is_admin'])) {
     $_SESSION['is_admin'] = false;
 }
 
+// Chargement de Twig
 require_once '../include/twig/autoload.php';
-
 $loader = new \Twig\Loader\FilesystemLoader('../../template/html');
-
 $twig = new \Twig\Environment($loader, [
     'cache' => '../include/twig/cache',
     'auto_reload' => true,
@@ -17,35 +15,61 @@ $twig = new \Twig\Environment($loader, [
 
 $twig->addGlobal('session', $_SESSION);
 
-$page = $_GET['page'] ?? 'front/accueil'; // page par défaut
+// Connexion à MongoDB
+require_once '../../vendor/autoload.php'; // Chemin vers le vendor/autoload généré par Composer
 
+use MongoDB\Client;
 
-if ($page === 'admin/deconnexion') {
-    session_unset();        // Vide les variables de session
-    session_destroy();      // Détruit la session
-    header('Location: ?page=front/accueil'); // Redirige vers l'accueil
-    exit;
-}
+$client = new Client("mongodb://mongodb:27017");
+$collection = $client->eco_ride->trajets;
 
-$pages_front = ['front/accueil', 'front/acces_covoiturages', 'front/contact', 'front/connexion', 'front/details_covoiturages', 'front/inscription'];
-$pages_admin = ['admin/profil', 'admin/espace_utilisateurs', 'admin/publier_trajet', 'admin/trajet_programme'];
+// Liste des pages front autorisées
+$pages_front = [
+    'front/accueil',
+    'front/acces_covoiturages',
+    'front/contact',
+    'front/connexion',
+    'front/details_covoiturages',
+    'front/inscription',
+    'front/mentions_legales'
+];
 
-// Simulation d'une inscription réussie
+// Page demandée (ou accueil par défaut)
+$page = $_GET['page'] ?? 'front/accueil';
+
+// Simulation d'une inscription réussie (à adapter plus tard avec base de données)
 if ($page === 'front/inscription' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['is_admin'] = true;
-    header('Location: ?page=admin/profil');
+    header('Location: ../admin/eco_ride_admin.php?page=admin/profil');
     exit;
 }
 
-if (in_array($page, $pages_front)) {
-    echo $twig->render("$page.html.twig");
-} elseif (in_array($page, $pages_admin)) {
-    if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
-        header('Location: ?page=admin/profil');
-        exit;
-    } else {
-        echo $twig->render("$page.html.twig");
+// Exemple : récupération des trajets depuis Mongo si on est sur la page des covoiturages
+$trajets = [];
+if ($page === 'front/acces_covoiturages') {
+    $depart = $_GET['depart'] ?? '';
+    $arrivee = $_GET['arrivee'] ?? '';
+    $date = $_GET['date'] ?? '';
+
+    $filtre = [];
+    if ($depart) $filtre['lieu_depart'] = $depart;
+    if ($arrivee) $filtre['lieu_arrivee'] = $arrivee;
+    if ($date) $filtre['date_depart'] = $date;
+
+    $cursor = $collection->find($filtre);
+    foreach ($cursor as $document) {
+        $trajets[] = $document;
     }
+}
+
+// Affichage de la page si autorisée
+if (in_array($page, $pages_front)) {
+    echo $twig->render("$page.html.twig", [
+        'depart' => $_GET['depart'] ?? '',
+        'arrivee' => $_GET['arrivee'] ?? '',
+        'date' => $_GET['date'] ?? '',
+        'trajets' => $trajets // ? Utilisable dans ton template Twig
+    ]);
 } else {
     echo $twig->render("front/accueil.html.twig");
 }
