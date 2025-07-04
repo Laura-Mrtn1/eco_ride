@@ -29,6 +29,7 @@ services:
     restart: always
     depends_on:
       - bdd
+      - mongodb
 
   nginx:
     image: nginx:latest
@@ -66,4 +67,13 @@ services:
       PMA_PASSWORD: motdepasse_utilisateur
     ports:
       - "8081:80"
+    restart: always
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongodb:/data/db
     restart: always
