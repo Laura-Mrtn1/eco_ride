@@ -1,29 +1,27 @@
 <?php
+session_start();
 
-// Initialisation de la session admin si non définie
-if (!isset($_SESSION['is_admin'])) {
-    $_SESSION['is_admin'] = false;
-}
+require_once '../../vendor/autoload.php';  // Composer autoload (MongoDB, etc.)
+require_once '../include/twig/autoload.php'; // Twig autoload
 
-// Chargement de Twig
-require_once '../include/twig/autoload.php';
-$loader = new \Twig\Loader\FilesystemLoader('../../template/html');
-$twig = new \Twig\Environment($loader, [
+use MongoDB\Client;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
+
+// Initialisation Twig
+$loader = new FilesystemLoader('../../template/html');
+$twig = new Environment($loader, [
     'cache' => '../include/twig/cache',
     'auto_reload' => true,
 ]);
 
 $twig->addGlobal('session', $_SESSION);
 
-// Connexion à MongoDB
-require_once '../../vendor/autoload.php'; // Chemin vers le vendor/autoload généré par Composer
-
-use MongoDB\Client;
-
+// Connexion MongoDB
 $client = new Client("mongodb://mongodb:27017");
 $collection = $client->eco_ride->trajets;
 
-// Liste des pages front autorisées
+// Pages autorisées
 $pages_front = [
     'front/accueil',
     'front/acces_covoiturages',
@@ -34,46 +32,41 @@ $pages_front = [
     'front/mentions_legales'
 ];
 
-// Page demandée (ou accueil par défaut)
 $page = $_GET['page'] ?? 'front/accueil';
 
-// Simulation d'une inscription réussie (à adapter plus tard avec base de données)
-if ($page === 'front/inscription' && $_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['is_admin'] = true;
-    header('Location: ../admin/eco_ride_admin.php?page=admin/profil');
-    exit;
-}
-
-// Exemple : récupération des trajets depuis Mongo si on est sur la page des covoiturages
+// Par défaut aucune donnée trajets
 $trajets = [];
+$depart = $_GET['depart'] ?? '';
+$arrivee = $_GET['arrivee'] ?? '';
+$date = $_GET['date'] ?? '';
+
+// Traitement spécial pour la page accès covoiturages
 if ($page === 'front/acces_covoiturages') {
-    $depart = $_GET['depart'] ?? '';
-    $arrivee = $_GET['arrivee'] ?? '';
-    $date = $_GET['date'] ?? '';
 
     $filtre = [];
 
-    // Recherche insensible à la casse et partielle sur lieu_depart
-    if ($depart) {
-        $filtre['lieu_depart'] = new MongoDB\BSON\Regex($depart, 'i');
+    if ($depart !== '') {
+        $filtre['lieu_depart'] = new MongoDB\BSON\Regex(preg_quote($depart), 'i');  // Recherche insensible à la casse
+    }
+    if ($arrivee !== '') {
+        $filtre['lieu_arrivee'] = new MongoDB\BSON\Regex(preg_quote($arrivee), 'i');
+    }
+    if ($date !== '') {
+        // Vérification simple du format date YYYY-MM-DD
+        if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+            $filtre['date_depart'] = $date;
+        } else {
+            $date = ''; // reset si format invalide
+        }
     }
 
-    // Recherche insensible à la casse et partielle sur lieu_arrivee
-    if ($arrivee) {
-        $filtre['lieu_arrivee'] = new MongoDB\BSON\Regex($arrivee, 'i');
-    }
-
-    // Filtrage strict sur la date
-    if ($date) {
-        $filtre['date_depart'] = $date;
-    }
-
+    // Requête MongoDB
     $cursor = $collection->find($filtre);
     foreach ($cursor as $document) {
         $trajets[] = $document;
     }
 
-    // Ici tu ajoutes le fallback si pas de trajets trouvés
+    // Fallback si pas de trajets trouvés
     if (empty($trajets)) {
         $trajets = [
             [
@@ -89,23 +82,21 @@ if ($page === 'front/acces_covoiturages') {
                 'nb_place' => 3,
                 '_id' => 'test1',
             ],
-            // tu peux ajouter d’autres trajets test ici
         ];
     }
 }
 
-// Affichage de la page si autorisée
 if (in_array($page, $pages_front)) {
-    $orsApiKey = 'TA_CLÉ_API_ORS_ICI';
+    $orsApiKey = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjI4NGM3NjgwZWQ1NjRlYjc5M2MzYjg0MzU4MmI5MDA0IiwiaCI6Im11cm11cjY0In0=';
 
     echo $twig->render("$page.html.twig", [
-        'depart' => $_GET['depart'] ?? '',
-        'arrivee' => $_GET['arrivee'] ?? '',
-        'date' => $_GET['date'] ?? '',
+        'depart' => $depart,
+        'arrivee' => $arrivee,
+        'date' => $date,
         'trajets' => $trajets,
-        'orsApiKey' => $orsApiKey
+        'orsApiKey' => $orsApiKey,
     ]);
-
 } else {
+    // Page non autorisée, affichage accueil
     echo $twig->render("front/accueil.html.twig");
 }

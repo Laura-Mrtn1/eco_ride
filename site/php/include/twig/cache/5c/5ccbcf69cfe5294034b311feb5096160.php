@@ -142,20 +142,14 @@ class __TwigTemplate_6f9691fd43f8794dbc3b96fa0bb9dd0e extends Template
     </div>
 
     <script>
-        const trajetsData = ";
+        window.ORS_API_KEY = \"";
         // line 82
-        yield json_encode(($context["trajets"] ?? null));
-        yield ";
-        const ORS_API_KEY = \"";
-        // line 83
         yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(($context["orsApiKey"] ?? null), "html", null, true);
         yield "\";
-    </script>
-
-    <script>
-        document.addEventListener(\"DOMContentLoaded\", () => {
-            afficherResultats(trajetsData);
-        });
+        window.covoiturages = ";
+        // line 83
+        yield json_encode(($context["trajets"] ?? null));
+        yield ";
     </script>
 
 ";
