@@ -49,4 +49,8 @@ use eco_ride
   covoiturage_prix_personne: 20,
   heure_arrivee: "12:00",
   heure_depart: "08:00",
-  date_depart: "2025-0
+  date_depart: "2025-07-20",
+  lieu_arrivee: "Marseille",
+  lieu_depart: "Lyon",
+db.trajets.insertOne({
+use eco_ride

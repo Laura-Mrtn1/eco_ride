@@ -19,3 +19,12 @@
 {"t":{"$date":"2025-07-20T17:42:33.939Z"},"s":"I","c":"MONGOSH-SNIPPETS","id":1000000027,"ctx":"snippets","msg":"Fetching snippet index done"}
 {"t":{"$date":"2025-07-20T17:42:33.941Z"},"s":"I","c":"MONGOSH-SNIPPETS","id":1000000024,"ctx":"snippets","msg":"Fetching snippet index","attr":{"refreshMode":"force-refresh"}}
 {"t":{"$date":"2025-07-20T17:42:34.641Z"},"s":"I","c":"MONGOSH-SNIPPETS","id":1000000027,"ctx":"snippets","msg":"Fetching snippet index done"}
+{"t":{"$date":"2025-07-20T17:42:59.144Z"},"s":"I","c":"MONGOSH","id":1000000009,"ctx":"shell-api","msg":"Used \"show\" command","attr":{"method":"show dbs"}}
+{"t":{"$date":"2025-07-20T17:43:11.718Z"},"s":"I","c":"MONGOSH","id":1000000008,"ctx":"shell-api","msg":"Used \"use\" command","attr":{"db":"eco_ride"}}
+{"t":{"$date":"2025-07-20T17:43:17.440Z"},"s":"I","c":"MONGOSH","id":1000000009,"ctx":"shell-api","msg":"Used \"show\" command","attr":{"method":"show collections"}}
+{"t":{"$date":"2025-07-20T17:43:31.765Z"},"s":"I","c":"MONGOSH","id":1000000007,"ctx":"repl","msg":"Evaluating input","attr":{"input":"db.trajets.find().pretty()"}}
+{"t":{"$date":"2025-07-20T17:43:31.814Z"},"s":"I","c":"MONGOSH","id":1000000011,"ctx":"shell-api","msg":"Performed API call","attr":{"method":"find","class":"Collection","db":"eco_ride","coll":"trajets","arguments":{"options":{}}}}
+{"t":{"$date":"2025-07-20T17:44:02.685Z"},"s":"I","c":"MONGOSH","id":1000000007,"ctx":"repl","msg":"Evaluating input","attr":{"input":"db.trajets.find().pretty()"}}
+{"t":{"$date":"2025-07-20T17:44:02.689Z"},"s":"I","c":"MONGOSH","id":1000000011,"ctx":"shell-api","msg":"Performed API call","attr":{"method":"find","class":"Collection","db":"eco_ride","coll":"trajets","arguments":{"options":{}}}}
+{"t":{"$date":"2025-07-20T17:44:40.193Z"},"s":"I","c":"MONGOSH","id":1000000007,"ctx":"repl","msg":"Evaluating input","attr":{"input":"db.trajets.countDocuments()"}}
+{"t":{"$date":"2025-07-20T17:44:40.200Z"},"s":"I","c":"MONGOSH","id":1000000011,"ctx":"shell-api","msg":"Performed API call","attr":{"method":"countDocuments","class":"Collection","db":"eco_ride","coll":"trajets","arguments":{"options":{}}}}

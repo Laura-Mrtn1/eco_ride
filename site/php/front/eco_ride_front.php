@@ -72,6 +72,26 @@ if ($page === 'front/acces_covoiturages') {
     foreach ($cursor as $document) {
         $trajets[] = $document;
     }
+
+    // Ici tu ajoutes le fallback si pas de trajets trouvés
+    if (empty($trajets)) {
+        $trajets = [
+            [
+                'lieu_depart' => 'Paris',
+                'lieu_arrivee' => 'Lyon',
+                'date_depart' => '2025-07-21',
+                'heure_depart' => '08:00',
+                'heure_arrivee' => '12:00',
+                'prix_personne' => 25,
+                'utilisateur_photo' => '/images/users/user1.jpg',
+                'utilisateur_pseudo' => 'JeanDupont',
+                'note_moyenne' => 4,
+                'nb_place' => 3,
+                '_id' => 'test1',
+            ],
+            // tu peux ajouter d’autres trajets test ici
+        ];
+    }
 }
 
 // Affichage de la page si autorisée
