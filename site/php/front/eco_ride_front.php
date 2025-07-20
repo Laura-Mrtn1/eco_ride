@@ -52,9 +52,21 @@ if ($page === 'front/acces_covoiturages') {
     $date = $_GET['date'] ?? '';
 
     $filtre = [];
-    if ($depart) $filtre['lieu_depart'] = $depart;
-    if ($arrivee) $filtre['lieu_arrivee'] = $arrivee;
-    if ($date) $filtre['date_depart'] = $date;
+
+    // Recherche insensible à la casse et partielle sur lieu_depart
+    if ($depart) {
+        $filtre['lieu_depart'] = new MongoDB\BSON\Regex($depart, 'i');
+    }
+
+    // Recherche insensible à la casse et partielle sur lieu_arrivee
+    if ($arrivee) {
+        $filtre['lieu_arrivee'] = new MongoDB\BSON\Regex($arrivee, 'i');
+    }
+
+    // Filtrage strict sur la date
+    if ($date) {
+        $filtre['date_depart'] = $date;
+    }
 
     $cursor = $collection->find($filtre);
     foreach ($cursor as $document) {
@@ -64,12 +76,16 @@ if ($page === 'front/acces_covoiturages') {
 
 // Affichage de la page si autorisée
 if (in_array($page, $pages_front)) {
+    $orsApiKey = 'TA_CLÉ_API_ORS_ICI';
+
     echo $twig->render("$page.html.twig", [
         'depart' => $_GET['depart'] ?? '',
         'arrivee' => $_GET['arrivee'] ?? '',
         'date' => $_GET['date'] ?? '',
-        'trajets' => $trajets // ? Utilisable dans ton template Twig
+        'trajets' => $trajets,
+        'orsApiKey' => $orsApiKey
     ]);
+
 } else {
     echo $twig->render("front/accueil.html.twig");
 }

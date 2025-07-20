@@ -1,0 +1,52 @@
+db.trajets.countDocuments()
+db.trajets.find().pretty()
+show collections
+use eco_ride
+show dbs
+db.configuration.find().pretty()
+use eco_ride
+use eco_ide
+docker cp
+docker ps
+mongoimport --uri="mongodb://localhost:27017" --db=eco_ride --collection=configuration --file=ors_config.json
+cd eco_ride
+mongoimport --uri="mongodb://localhost:27017" --db=eco_ride --collection=configuration --file=ors_config.json --jsonArray
+db.trajets.drop();
+db.trajets.find().pretty()
+});
+  covoiturage_id: "1"
+  note_moyenne: 4.5,
+  utilisateur_photo: "/images/utilisateur1.jpg",
+  utilisateur_pseudo: "JeanDupont",
+  covoiturage_nb_place: 3,
+  covoiturage_prix_personne: 20,
+  heure_arrivee: "12:00",
+  heure_depart: "08:00",
+  date_depart: "2025-07-20",
+  lieu_arrivee: "Marseille",
+  lieu_depart: "Lyon",
+db.trajets.insertOne({
+});
+  covoiturage_id: "1"
+  note_moyenne: 4.5,
+  utilisateur_photo: "/images/utilisateur1.jpg",
+  utilisateur_pseudo: "JeanDupont",
+  covoiturage_nb_place: 3,
+  covoiturage_prix_personne: 20,
+  heure_arrivee: "12:00",
+  heure_depart: "08:00",
+  date_depart: "2025-07-20",
+  lieu_arrivee: "Marseille",
+  lieu_depart: "Lyon",
+db.trajets.insertOne({
+use eco_ride
+})
+  covoiturage_id: "1"
+  note_moyenne: 4.5,
+  utilisateur_photo: "/images/utilisateur1.jpg",
+  utilisateur_pseudo: "JeanDupont",
+  covoiturage_nb_place: 3,
+  covoiturage_prix_personne: 20,
+  heure_arrivee: "12:00",
+  heure_depart: "08:00",
+  date_depart: "2025-0

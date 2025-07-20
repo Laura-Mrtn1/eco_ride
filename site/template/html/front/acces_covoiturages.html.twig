@@ -9,12 +9,12 @@
             <img class= "img_couverture_2" src="/images/front/route-campagne.jpg">
             <div class="overlay"></div>
             <h2 class="titre_couverture">PROGRAMMEZ VOTRE PROCHAIN ITINÉRAIRE</h2>
-            <form class="barre_recherche">
+            <form class="barre_recherche" method="get" action="?page=front/acces_covoiturages">
                 <table>
                     <tr class="style_barre_recherche">
-                        <td><input type="text" placeholder="Départ"></td>
-                        <td><input type="text" placeholder="Arrivée"></td>
-                        <td><input type="date"></td>
+                        <td><input type="text" name="depart" placeholder="Départ" value="{{ depart|default('') }}"></td>
+                        <td><input type="text" name="arrivee" placeholder="Arrivée" value="{{ arrivee|default('') }}"></td>
+                        <td><input type="date" name="date" value="{{ date|default('') }}"></td>
                         <td><button class="bouton_ecoride" type="submit">RECHERCHER</button></td>
                     </tr>
                 </table>
@@ -71,102 +71,22 @@
                         </div>
                         <div class="col-md-offset-1 col-md-8">
                             <div id="resultats"></div>
-                            <div class="fond_offre_covoiturages">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p id="date_container">28/02/2025</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="text-right" id="prix_element">43,99€</p>
-                                    </div>
-                                </div>
-                                <div class="row duree_covoiturages">
-                                    <div class="col-md-1">
-                                        <p id="heure_depart">12:55</p>
-                                    </div>
-                                    <div class="col-md-4 duree_trajet">
-                                        <span class="trajet_circle fa-regular fa-circle"></span><hr class="longueur_trajet"><span class="trajet_circle fa-regular fa-circle"></span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <p id="heure_arrivee">20:22</p>
-                                    </div>
-                                </div>
-                                <hr class="separation_offre_covoiturages">
-                                <div class="row offre_covoiturages">
-                                    <div class="col-md-1">
-                                        <img src="/images/front/voiture.png">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <img src="/images/front/user_h.png">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>Prénom</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p>2 places disponibles</p>
-                                    </div>
-                                    <div class="col-md-3 bouton_details">
-                                        <a href="?page=front/details_covoiturages" class="bouton_ecoride">DÉTAILS</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="fond_offre_covoiturages">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <p id="date_container">28/02/2025</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p class="text-right" id="prix_element">43,99€</p>
-                                    </div>
-                                </div>
-                                <div class="row duree_covoiturages">
-                                    <div class="col-md-1">
-                                        <p id="heure_depart">12:55</p>
-                                    </div>
-                                    <div class="col-md-4 duree_trajet">
-                                        <span class="trajet_circle fa-regular fa-circle"></span><hr class="longueur_trajet"><span class="trajet_circle fa-regular fa-circle"></span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <p id="heure_arrivee">20:22</p>
-                                    </div>
-                                </div>
-                                <hr class="separation_offre_covoiturages">
-                                <div class="row offre_covoiturages">
-                                    <div class="col-md-1">
-                                        <img src="/images/front/voiture.png">
-                                    </div>
-                                    <div class="col-md-1">
-                                        <img src="/images/front/user.png">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <p>Prénom</p>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                        <span class="fa-regular fa-star fa-lg"></span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <p>1 place disponible</p>
-                                    </div>
-                                    <div class="col-md-3 bouton_details">
-                                        <a href="?page=front/details_covoiturages" class="bouton_ecoride">DÉTAILS</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        const trajetsData = {{ trajets|json_encode|raw }};
+        const ORS_API_KEY = "{{ orsApiKey }}";
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            afficherResultats(trajetsData);
+        });
+    </script>
+
 {% endblock %}
