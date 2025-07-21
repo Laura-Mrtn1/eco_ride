@@ -1,0 +1,45 @@
+{# accueil.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block content %}
+    <div class="page_accueil" id="accueil">
+        <div class="couverture_accueil">
+            <img class= "img_couverture" src="/images/front/route-foret.jpg">
+            <div class="overlay"></div>
+            <h2 class="titre_couverture">BIENVENUE SUR NOTRE PLATEFORME DE COVOITURAGE,<br> RECHERCHEZ VOTRE PROCHAIN ITINÉRAIRE</h2>
+            <form id="rechercheForm" class="barre_recherche" action="eco_ride_front.php" method="get" method="GET">
+                <table>
+                    <tr class="style_barre_recherche">
+                        <input type="hidden" name="page" value="front/acces_covoiturages">
+                        <td><input type="text" name="depart" id="villeDepart" placeholder="Départ" required></td>
+                        <td><input type="text" name="arrivee" id="villeArrivee" placeholder="Arrivée" required></td>
+                        <td><input type="date" name="date" id="dateVoyage" required></td>
+                        <td><button class="bouton_ecoride" type="submit">RECHERCHER</button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+
+        <div class="container">
+            <div class="contenu_accueil">
+                <div class="row">
+                    <div class="col-md-6 text_accueil">
+                        <h2>EcoRide : Covoiturage écologique et économique</h2>
+                        <br>
+                        <p>EcoRide est une startup française qui révolutionne les déplacements en proposant une plateforme de covoiturage écologique et économique.<br><br>Notre mission : réduire l’impact environnemental des trajets en encourageant le partage de voitures et en privilégiant les véhicules électriques.<br><br>Avec EcoRide, voyagez malin, respectez la planète et économisez.<br> Rejoignez notre communauté engagée et contribuez à un avenir plus vert.<br><br>EcoRide, la route responsable.</p>
+                    </div>
+                    <div class="col-md-3 img_accueil">
+                        <img src="/images/front/voiture-electrique.png"><br><br>
+                        <img src="/images/front/route-campagne-carre.png">
+                    </div>
+                    <div class="col-md-3 img_accueil">
+                        <img src="/images/front/route_voiture.png"><br><br>
+                        <img src="/images/front/electrique.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

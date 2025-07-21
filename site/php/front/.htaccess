@@ -2,7 +2,7 @@
     Order Deny,Allow
     Allow from all
 </Files>
-<Files "eco_ride.php">
+<Files "eco_ride_front.php">
     Order Deny,Allow
     Allow from all
 </Files>

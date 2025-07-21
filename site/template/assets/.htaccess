@@ -1,0 +1,4 @@
+<Files "fa-solid-900.woff2">
+    Order Allow,Deny
+    Allow from all
+</Files>

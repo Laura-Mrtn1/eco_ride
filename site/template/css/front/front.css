@@ -1,0 +1,482 @@
+.page_accueil, .page_acces_covoiturages, .page_details_covoiturages, .page_connexion_covoiturages, .page_espace_utilisateur {
+    /*display: none;*/
+}
+
+/*img {
+    height: 30px;
+}*/
+
+body {
+    font-family: "Poppins", sans-serif !important;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #6C6C6C !important;
+}
+
+.no_padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.barre_footer, .barre_menu {
+    background-color: #53854A;
+}
+
+.menu {
+    background-color: #53854A;
+    color: white;
+    text-align: center;
+}
+
+.couverture_accueil {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+nav {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+nav a, nav a:hover {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    flex-grow: 1;
+}
+
+.logo_ecoride {
+    height: 100px;
+    width: auto;
+    transform: translateX(-50%);
+}
+
+.img_couverture, .img_couverture_2 {
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.img_couverture_contact {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+
+
+.img_couverture_2 {
+    object-position: center !important;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #86BBCC;
+    opacity: 0.40;
+}
+
+.titre_couverture {
+    position: relative;
+    text-align: center;
+    color: white;
+    justify-content: center;
+    padding-bottom: 50px;
+    font-weight: 500;
+    font-size: 28px;
+    z-index: 2;
+    margin-top: -30px;
+}
+
+.barre_recherche {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    z-index: 2;
+}
+
+.barre_recherche table {
+    background-color: white;
+    border-radius: 50px;
+}
+
+.style_barre_recherche {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.style_barre_recherche td input {
+    border-right: 1px solid grey;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: grey;
+}
+
+.style_barre_recherche td {
+    padding-left: 20px;
+}
+
+.bouton_ecoride, .bouton_connexion {
+    background-color: #53854A !important;
+    color: white !important;
+    font-family: 'Poppins' !important;
+    border-radius: 30px !important;
+    padding: 5px 25px !important;
+    font-size: 18px !important;
+    border: none !important;
+}
+
+.contenu_accueil {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.img_accueil > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.text_accueil > h2 {
+    font-size: 20px;
+    color: #6C6C6C;
+    font-weight: 600;
+    margin-top: 0px;
+}
+
+.footer {
+    color: white;
+    padding: 10px 20px;
+    margin-top: 20px;
+    display: inline-flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer a {
+    color: #87CEEB;
+    flex-grow: 1;
+}
+
+.footer img {
+    width: 120px;
+}
+
+.footer p {
+    font-size: 16px;
+}
+
+
+.fond_covoiturages {
+    background-color: #CADAC8;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.trier_covoiturages {
+    background-color: #bbcbb9;
+    border-radius: 28px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.trier_covoiturages > h4 {
+    color: #6C6C6C;
+}
+
+
+#inputGroupSuccess1, #inputGroupSuccess2 {
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+}
+
+.input_symbole {
+    border-radius: 28px !important;
+    background-color: #53854A !important;
+    color: white !important;
+}
+
+.fond_offre_covoiturages, .fond_offre_covoiturages_prix, .fond_inscription_covoiturages, .fond_connexion_covoiturages, .fond_contact {
+    background-color: white;
+    border-radius: 28px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.fond_contact {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+    border: solid 2px #53854A;
+
+}
+
+.fond_offre_covoiturages_prix {
+    border-radius: 20px;
+}
+
+.fond_inscription_covoiturages, .fond_connexion_covoiturages {
+    padding-left: 100px !important;
+    padding-right: 100px !important;
+    padding-top: 80px;
+    padding-bottom: 80px !important;
+    border: solid 2px #53854A;
+}
+
+.duree_covoiturages {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.duree_covoiturages_details {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+
+.offre_covoiturages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.longueur_trajet {
+    border: solid 3px #53854A;
+    width: 100%;
+}
+
+.longueur_trajet_details {
+    border: solid 3px #53854A;
+    transform: rotate(360deg);
+    height: 50px;
+}
+
+.separation_offre_covoiturages {
+    border-top: 1px solid #6C6C6C !important;
+    margin-top: 0px !important;
+}
+
+.separation_offre_covoiturages_details {
+    border-top: 1px solid #6C6C6C !important;
+}
+
+
+.duree_trajet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.duree_trajet_details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trajet_circle {
+    color: #53854A;
+}
+
+.fa-star {
+    color: #53854A;
+}
+
+#prix_element {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.offre_covoiturages > div:nth-child(3) > p, .offre_covoiturages > div:nth-child(5) > p {
+    margin-bottom: 0px !important;
+}
+
+.bouton_details {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bouton_participer, .bouton_retour {
+    background-color: #53854A;
+    color: white;
+    font-family: 'Poppins';
+    border-radius: 30px;
+    padding: 5px 25px;
+    font-size: 18px;
+    border: none;
+    text-align: center;
+    width: 100%;
+}
+
+.bouton_retour {
+    background-color: #6C6C6C !important;
+}
+
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #53854A;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-top: 0px !important;
+}
+
+input[type="radio"]:checked {
+    border-color: #53854A;
+}
+
+input[type="radio"]:checked::after {
+    content: "";
+    width: 14px;
+    height: 14px;
+    background-color: #53854A;
+    border-color: #53854A;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.input_recherche_filtre {
+    background-color: white;
+    border-radius: 28px;
+    border: 2px solid #ccc;
+
+}
+
+.form-control {
+    border: none !important;
+}
+
+.radio {
+    margin-top: 10px !important;
+}
+
+.radio label {
+    font-weight: 500 !important;
+    color: #6C6C6C;
+}
+
+
+.page_details_covoiturages, .page_connexion_covoiturages {
+    background-color: #E2EBE1;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#date_container {
+    font-size: 18px;
+    color: #6C6C6C;
+    font-weight: 500;
+    padding-left: 15px;
+}
+
+.avis_covoiturages > p {
+    margin-left: 30px;
+    font-family: 'Poppins';
+}
+
+.bouton_avis {
+    color: white;
+    background-color: #53854A;
+    border-radius: 50%;
+    border: none;
+    height: 30px;
+    width: 30px;
+}
+
+.image_cadre_resume {
+    height: 25px;
+}
+
+.image_cadre_resume_voiture {
+    height: 20px;
+}
+
+.titre_fiche_conducteur {
+    color: #6C6C6C;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.logo_ecoride_footer{
+    height: 100%;
+}
+
+.formulaire_inscription {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.fond_inscription_covoiturages p, .fond_connexion_covoiturages p, .fond_contact p {
+    font-size: 20px;
+    color: #53854A;
+    font-weight: 500;
+}
+
+.page_contact .couverture_accueil, .page_mentions_legales .couverture_accueil {
+    height: 200px !important;
+}
+
+.page_contact .titre_couverture, .page_mentions_legales .titre_couverture{
+    padding-bottom: 0px !important;
+}
+
+/*.fond_covoiturages .row {
+    margin-top: 50px !important;
+    margin-bottom: 50px !important;
+}*/
+
+.fond_covoiturages h3 {
+    color: #53854A;
+}
+
+.fa-brands {
+    color: #53854A;
+}
+
+
+.userMenu_dropdown > .btn-default {
+    color: white !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.navigation_menu a {
+    flex-grow: 0 !important;
+}
+

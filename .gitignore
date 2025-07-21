@@ -11,7 +11,7 @@ logs/site/*
 logs/nginx/*
 !logs/nginx/
 
-/data/mongodb/
+data/mongodb/
 
 
 

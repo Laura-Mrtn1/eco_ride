@@ -1,0 +1,82 @@
+/* Conteneur switch + texte */
+.switch-with-text {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* espace entre le switch et le texte */
+    font-family: 'Poppins';
+}
+
+/* Style du switch (identique à avant) */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 28px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 20px; width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+input:checked + .slider {
+    background-color: #53854A;
+}
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+/* Texte à droite */
+.toggle-text {
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: normal;
+
+}
+
+.page_profil_admin {
+    background-color: #E2EBE1;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.input_recherche_filtre input {
+    border-radius: 28px !important;
+}
+
+.fond_offre_covoiturages_trajet {
+    background-color: white;
+    border-radius: 28px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 45px;
+    background-color: #E2EBE1;
+}
+
+.fond_offre_covoiturages_trajet #date_container {
+    padding-left: 0px !important;
+}
+
+.formulaire_inscription .form-control{
+    box-shadow: inset 0 0 0px 1px rgba(0,0,0,.075) !important;
+    border-radius: 30px !important;
+}

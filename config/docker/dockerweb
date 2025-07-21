@@ -1,11 +1,21 @@
 FROM php:8.2-apache
 
-# Mise à jour et installation des dépendances nécessaires à mysqli/pdo_mysql
+# Installation des dépendances système
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     unzip \
-    && docker-php-ext-install mysqli pdo pdo_mysql
+    libssl-dev \
+    pkg-config \
+    git \
+    curl \
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && pecl install mongodb \
+    && docker-php-ext-enable mongodb \
+    && a2enmod rewrite
 
-# Activation de mod_rewrite pour Apache
-RUN a2enmod rewrite
+# Installer Composer (si tu ne l’as pas déjà dans un autre container)
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Définir le dossier de travail (optionnel)
+WORKDIR /var/www/html
