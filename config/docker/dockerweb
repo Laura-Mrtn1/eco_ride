@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Installation des dépendances système
+# Installation des dépendances système nécessaires pour mongodb, zip, et autres
 RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
@@ -9,13 +9,13 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     git \
     curl \
-    && docker-php-ext-install mysqli pdo pdo_mysql \
     && pecl install mongodb \
     && docker-php-ext-enable mongodb \
-    && a2enmod rewrite
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && a2enmod rewrite \
+    && rm -rf /var/lib/apt/lists/*
 
-# Installer Composer (si tu ne l’as pas déjà dans un autre container)
+# Installer Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Définir le dossier de travail (optionnel)
 WORKDIR /var/www/html

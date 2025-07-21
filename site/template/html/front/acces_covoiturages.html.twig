@@ -9,12 +9,12 @@
             <img class= "img_couverture_2" src="/images/front/route-campagne.jpg">
             <div class="overlay"></div>
             <h2 class="titre_couverture">PROGRAMMEZ VOTRE PROCHAIN ITINÉRAIRE</h2>
-            <form class="barre_recherche" method="get" action="?page=front/acces_covoiturages">
+            <form class="barre_recherche">
                 <table>
                     <tr class="style_barre_recherche">
-                        <td><input type="text" name="depart" placeholder="Départ" value="{{ depart|default('') }}"></td>
-                        <td><input type="text" name="arrivee" placeholder="Arrivée" value="{{ arrivee|default('') }}"></td>
-                        <td><input type="date" name="date" value="{{ date|default('') }}"></td>
+                        <td><input type="text" placeholder="Départ"></td>
+                        <td><input type="text" placeholder="Arrivée"></td>
+                        <td><input type="date"></td>
                         <td><button class="bouton_ecoride" type="submit">RECHERCHER</button></td>
                     </tr>
                 </table>
@@ -79,14 +79,8 @@
     </div>
 
     <script>
-        const trajetsData = {{ trajets|json_encode|raw }};
-        const ORS_API_KEY = "{{ orsApiKey }}";
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            afficherResultats(trajetsData);
-        });
+        window.ORS_API_KEY = "{{ orsApiKey }}";
+        window.covoiturages = {{ trajets|json_encode|raw }};
     </script>
 
 {% endblock %}

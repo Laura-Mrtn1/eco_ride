@@ -76,7 +76,7 @@ if ($page === 'front/acces_covoiturages') {
 
 // Affichage de la page si autorisée
 if (in_array($page, $pages_front)) {
-    $orsApiKey = 'TA_CLÉ_API_ORS_ICI';
+    $orsApiKey = 'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjI4NGM3NjgwZWQ1NjRlYjc5M2MzYjg0MzU4MmI5MDA0IiwiaCI6Im11cm11cjY0In0=';
 
     echo $twig->render("$page.html.twig", [
         'depart' => $_GET['depart'] ?? '',
