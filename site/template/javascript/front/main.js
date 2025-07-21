@@ -7,9 +7,7 @@ function getParametreURL(nom) {
     return params.get(nom);
 }
 
-const covoiturages = trajetsData || [];
-
-
+const covoiturages = window.covoiturages || [];
 
 // Fonction pour générer les étoiles
 function genererEtoiles(note) {

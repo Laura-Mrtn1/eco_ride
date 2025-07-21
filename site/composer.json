@@ -1,0 +1,19 @@
+{
+    "name": "laura/eco_ride",
+    "description": "Projet Eco Ride pour covoiturage écologique",
+    "autoload": {
+        "psr-4": {
+            "Laura\\EcoRide\\": "site/php/front/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Laura-mrtn",
+            "email": "martinlaura2105@icloud.com"
+        }
+    ],
+    "require": {
+        "mongodb/mongodb": "^2.0"
+    }
+
+}
