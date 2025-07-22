@@ -49,8 +49,15 @@ Une fois les conteneurs démarrés, vous pouvez accéder aux différentes services :
     Port : 27017
     Données stockées dans : ./data/mongodb/
 
+### 5. Test barre de recherche
 
-### 5. Licence
+Pour tester la barre de recherche sur la page "accueil' et afficher un itinéraire sur la page "accès covoiturages"
+
+> Ville de départ  : Paris
+> Ville d'arrivée : Lyon
+> Date : 21/07/2025
+
+### 6. Licence
 
 Projet open-source réalisé par Laura.M
 
